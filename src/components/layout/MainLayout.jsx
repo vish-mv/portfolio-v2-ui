@@ -2,6 +2,8 @@
 import { useState, useContext } from 'react';
 import styled from 'styled-components';
 import { ThemeContext } from '../../themes/ThemeContext';
+import Chatbot from '../chatbot/Chatbot';
+import Navigation from './Navigation';
 
 const LayoutContainer = styled.div`
   display: flex;
@@ -45,6 +47,12 @@ const ToggleButton = styled.button`
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 `;
 
+const ContentContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
 const MainLayout = ({ children }) => {
   const [isChatbotVisible, setIsChatbotVisible] = useState(true);
   const { theme } = useContext(ThemeContext);
@@ -52,13 +60,14 @@ const MainLayout = ({ children }) => {
   return (
     <LayoutContainer theme={theme}>
       <PortfolioSection fullscreen={!isChatbotVisible} theme={theme}>
-        {children}
+        <ContentContainer>
+          <Navigation />
+          {children}
+        </ContentContainer>
       </PortfolioSection>
       
       <ChatbotSection isVisible={isChatbotVisible} theme={theme}>
-        {/* Chatbot component will go here */}
-        <h2>AI Assistant</h2>
-        <p>Chatbot interface coming soon...</p>
+        <Chatbot />
       </ChatbotSection>
       
       <ToggleButton 
