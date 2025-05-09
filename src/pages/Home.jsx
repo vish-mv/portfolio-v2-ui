@@ -42,7 +42,7 @@ const Home = () => {
   
   return (
     <HomeContainer>
-      <Heading theme={theme}>John Doe</Heading>
+      <Heading theme={theme}>Visal Vitharana</Heading>
       <Subheading theme={theme}>Full Stack Developer | AI Specialist</Subheading>
       
       <p>Welcome to my interactive portfolio! I'm specialized in AI agent development and building AI-enhanced applications.</p>
